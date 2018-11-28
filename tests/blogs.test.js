@@ -81,22 +81,22 @@ describe("When not logged in", async () =>{
         }
     ];
     
-    // test("User cannot create blog posts", async () =>{
-    //     const result = await page.post("/api/blogs", {title: "New Title", content: "New Content"});
+    test("User cannot create blog posts", async () =>{
+        const result = await page.post("/api/blogs", {title: "New Title", content: "New Content"});
         
-    //     expect(result).toEqual({error: "You must log in!"});
-    // })
-
-    // test("User cannot get a list of posts", async () =>{
-    //     const result = await page.get("/api/blogs");
-
-    //     expect(result).toEqual({error: "You must log in!"});
-    // })
-    test("Blog related actions are prohited", async () =>{
-        const results = await page.execRequest(actions);
-
-        for(let result of results) {
-            expect(result).toEqual({error: "You must log in!"});
-        }
+        expect(result).toEqual({error: "You must log in!"});
     })
+
+    test("User cannot get a list of posts", async () =>{
+        const result = await page.get("/api/blogs");
+
+        expect(result).toEqual({error: "You must log in!"});
+    })
+    // test("Blog related actions are prohited", async () =>{
+    //     const results = await page.execRequest(actions);
+
+    //     for(let result of results) {
+    //         expect(result).toEqual({error: "You must log in!"});
+    //     }
+    // })
 })
